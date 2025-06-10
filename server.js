@@ -32,7 +32,7 @@ const Exam = require("./models/examModel");
 
 // CORS config
 app.use(cors({
-  origin: ["http://localhost:3000"], 
+  origin: ["https://kasperinfotech.co"], 
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
 }));
 
@@ -48,13 +48,13 @@ app.use("/api/question-sets", questionRoutes);
 app.use("/api/reports", reportRoutes);
 
 // ✅ Serve React build after API routes
-const buildPath = path.join(__dirname, '../frontend/build');
-app.use(express.static(buildPath));
+// const buildPath = path.join(__dirname, '../frontend/build');
+// app.use(express.static(buildPath));
 
-// ✅ Fallback route for React Router (must be after static)
-app.get('*', (req, res) => {
-  res.sendFile(path.join(buildPath, 'index.html'));
-});
+// // ✅ Fallback route for React Router (must be after static)
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(buildPath, 'index.html'));
+// });
 
 // Server port
 const port = process.env.PORT || 5000;
